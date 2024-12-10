@@ -2,9 +2,14 @@ import type { Config } from "tailwindcss";
 
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
-const config: Config = {
+const config = {
   darkMode: ["class"],
-  content: ["./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -15,14 +20,7 @@ const config: Config = {
       },
     },
     extend: {
-      backgroundImage: {
-        appointments: "url('/assets/images/appointments-bg.png')",
-        pending: "url('/assets/images/pending-bg.png')",
-        cancelled: "url('/assets/images/cancelled-bg.png')",
-      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
         green: {
           500: "#24AE7C",
           600: "#0D2A1F",
@@ -49,8 +47,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+      backgroundImage: {
+        appointments: "url('/assets/images/appointments-bg.png')",
+        pending: "url('/assets/images/pending-bg.png')",
+        cancelled: "url('/assets/images/cancelled-bg.png')",
       },
       keyframes: {
         "accordion-down": {
@@ -73,7 +75,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
-};
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
 
 export default config;
