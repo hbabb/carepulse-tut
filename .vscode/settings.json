@@ -19,5 +19,5 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "cSpell.words": ["carepulse", "DATEPICKER", "SHADCN"]
+  "cSpell.words": ["carepulse", "cmdk", "DATEPICKER", "SHADCN"]
 }
